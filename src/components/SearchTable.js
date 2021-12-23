@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button, Table, Modal } from 'react-bootstrap';
 import { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 
-export default function SearchTable({ }) {
+export default function SearchTable() {
 
     const [show, setShow] = useState(false);
     const [value, setValue] = useState();
@@ -14,7 +14,6 @@ export default function SearchTable({ }) {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    let list = [];
     let state = useSelector(state => state.listItem);
     //setCurrentState(state);
     const handleOnChange = (item,checkState) => {
@@ -54,7 +53,7 @@ export default function SearchTable({ }) {
                                 id="topping"
                                 name="topping"
                                 value="Paneer"
-                                checked={ item.id==selectedRow}
+                                checked={ item.id===selectedRow}
                                 onChange={() => handleOnChange(item,item?.isCheck)} />
                             </td>
                             <td>{item?.currency}</td>
