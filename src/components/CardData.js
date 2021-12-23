@@ -46,11 +46,12 @@ export default function CardData({ data, addList }) {
         const data = {
             isCheck: false,
             name: longMoneyName,
-            currency: currency,
+            currency: moneyType,
             amount: value,
             id: new Date().getUTCMilliseconds()
         }
         setListItem(data)
+        setShow(false);
         console.log('listItem', listItem)
         const totalMoney = localStorage.getItem('total')
         const rate_ = state.rate[data['0']]

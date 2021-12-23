@@ -7,18 +7,35 @@ import axios from "axios";
 
 
 
-export default function SearchTable({ handleOnChange }) {
+export default function SearchTable({ }) {
 
-    const [isChecked, setIsChecked] = useState(true);
+    const [isChecked, setIsChecked] = useState(false);
     const [show, setShow] = useState(false);
     const [value, setValue] = useState();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const [selectedRow,setSelectedRow]=useState();
+    //const [currentState,setCurrentState]=useState();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    let list = []
-    const state = useSelector(state => state.listItem)
-    
+    let list = [];
+    let state = useSelector(state => state.listItem);
+    //setCurrentState(state);
+    const handleOnChange = (item,checkState) => {
+        
+        state=state.map((data)=>{
+            if(item.id==data.id)
+            {
+                // data.isCheck=true;
+                setSelectedRow(item.id);
+            }
+            else {
+                data.isCheck=false;
+            }
+
+        return data;
+    });
+}
    
     return (
         <div>
@@ -41,14 +58,14 @@ export default function SearchTable({ handleOnChange }) {
                                 id="topping"
                                 name="topping"
                                 value="Paneer"
-                                checked={!item?.isCheck}
-                                onChange={() => handleOnChange(item.id)} />
+                                checked={ item.id==selectedRow}
+                                onChange={() => handleOnChange(item,item?.isCheck)} />
                             </td>
                             <td>{item?.currency}</td>
                             <td>{item?.name}</td>
                             <td>{item?.amount}</td>
-                            <td><Button disabled={item?.isCheck} onClick={handleShow}>BUY</Button></td>
-                            <td><Button disabled={item?.isCheck} onClick={handleShow}>SELL</Button></td>
+                            <td><Button disabled={item.id!=selectedRow} onClick={handleShow}>BUY</Button></td>
+                            <td><Button disabled={item.id!=selectedRow} onClick={handleShow}>SELL</Button></td>
                         </tr>
                     })}
 

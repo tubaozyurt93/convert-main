@@ -22,17 +22,18 @@ export default function Search() {
     }
 
 
-    const handleOnChange = id => {
-        console.log("id", id);
-        setList(
-            list.map(item => {
-                if (item.id === id) {
-                    return { ...item, isCheck: !item.isCheck };
-                }
-                return item;
-            })
-        );
-    };
+    // const handleOnChange = id => {
+    //     console.log("id", id);
+    //     setList(
+    //         list.map(item => {
+    //             if (item.id === id) {
+    //                 return { ...item, isCheck: !item.isCheck };
+    //             }
+    //             return item;
+    //         })
+    //     );
+    // };
+    
     useEffect(() => {
         getApi();
     }, [])
@@ -69,7 +70,7 @@ export default function Search() {
                 return <CardData key={value.id} data={value} addList={addList} />
             })
             }
-            <SearchTable handleOnChange={handleOnChange} />
+            <SearchTable />
         </div>
     );
 
