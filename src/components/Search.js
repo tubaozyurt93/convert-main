@@ -1,4 +1,5 @@
-/eslint array-callback-return: "error"/
+/*eslint array-callback-return: "error"*/
+
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
