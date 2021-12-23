@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
@@ -14,11 +14,9 @@ export default function CardData({ data, addList }) {
     const [moneyType, setMoneyType] = useState();
     const [listItem, setListItem] = useState();
     const [longMoneyName, setLongMoneyName] = useState();
-    const [currentRate ,setCurrentRate] = useState();
     const [value, setValue] = useState();
     const state = useSelector(state => state)
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const dispatch = useDispatch()
 
     useEffect(() => {

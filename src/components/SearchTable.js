@@ -1,18 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Button, Table, Modal } from 'react-bootstrap';
 import { useState } from 'react';
-import { getExchangeRate } from '../redux/action/action';
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 
 
 
 export default function SearchTable({ }) {
 
-    const [isChecked, setIsChecked] = useState(false);
     const [show, setShow] = useState(false);
     const [value, setValue] = useState();
-    const dispatch = useDispatch();
     const [selectedRow,setSelectedRow]=useState();
     //const [currentState,setCurrentState]=useState();
 
@@ -24,7 +20,7 @@ export default function SearchTable({ }) {
     const handleOnChange = (item,checkState) => {
         
         state=state.map((data)=>{
-            if(item.id==data.id)
+            if(item.id===data.id)
             {
                 // data.isCheck=true;
                 setSelectedRow(item.id);
@@ -64,8 +60,8 @@ export default function SearchTable({ }) {
                             <td>{item?.currency}</td>
                             <td>{item?.name}</td>
                             <td>{item?.amount}</td>
-                            <td><Button disabled={item.id!=selectedRow} onClick={handleShow}>BUY</Button></td>
-                            <td><Button disabled={item.id!=selectedRow} onClick={handleShow}>SELL</Button></td>
+                            <td><Button disabled={item.id!==selectedRow} onClick={handleShow}>BUY</Button></td>
+                            <td><Button disabled={item.id!==selectedRow} onClick={handleShow}>SELL</Button></td>
                         </tr>
                     })}
 

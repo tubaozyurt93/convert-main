@@ -1,6 +1,5 @@
 import React from 'react'
 import { Nav, Navbar, Container,Button } from 'react-bootstrap'
-import { auth } from "../firebase";
 import { useAuth } from "../contexts/AuthContext"
 import { useSelector } from 'react-redux'
 import Search from './Search';

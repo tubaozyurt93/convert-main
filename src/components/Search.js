@@ -11,7 +11,6 @@ import { useDispatch } from 'react-redux';
 export default function Search() {
     const [queryString, setQueryString] = useState('');
     const [search, setSearch] = useState();
-    const [list, setList] = useState([]);
     const dispatch = useDispatch();
 
 
@@ -24,9 +23,7 @@ export default function Search() {
         getApi();
     }, [])
 
-    useEffect(() => {
-        const getList = localStorage.getItem("list");
-    }, [])
+
 
     const getApi = async () => {
         const data = await axios.get(request.baseUrl);
