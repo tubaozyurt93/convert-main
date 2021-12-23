@@ -40,6 +40,7 @@ export default function Search() {
                 onChange={e => setQueryString(e.target.value)}
                 placeholder="Search..."
             />
+            // eslint-disable-line
             {search?.filter((item) => {
                 if (queryString === '') {
                     return null;
