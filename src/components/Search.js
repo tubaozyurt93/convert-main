@@ -40,7 +40,7 @@ export default function Search() {
             />
             {search?.filter((item) => {
                 if (queryString === '') {
-                    return null;
+                    return item;
                 }
 
                 else if (item[0].toLowerCase().includes(queryString.toLowerCase()) || item[1].toLowerCase().includes(queryString.toLowerCase())) {
