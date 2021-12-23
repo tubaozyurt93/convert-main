@@ -18,22 +18,8 @@ export default function Search() {
     const addList = (newList) => {
         console.log('new List', typeof newList)
         dispatch({ type: 'GET_LIST', payload: newList })
-        // setList([...list, newList])
     }
 
-
-    // const handleOnChange = id => {
-    //     console.log("id", id);
-    //     setList(
-    //         list.map(item => {
-    //             if (item.id === id) {
-    //                 return { ...item, isCheck: !item.isCheck };
-    //             }
-    //             return item;
-    //         })
-    //     );
-    // };
-    
     useEffect(() => {
         getApi();
     }, [])
