@@ -1,4 +1,4 @@
-/*eslint array-callback-return: "error"*/
+/*eslint array-callback-return: ["error", { allowImplicit: true }]*/
 
 import React from 'react'
 import { useState, useEffect } from 'react'
